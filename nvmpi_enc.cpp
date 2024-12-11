@@ -1,6 +1,8 @@
 #include "nvmpi.h"
 #include "NvVideoEncoder.h"
-#include "nvbuf_utils.h"
+#include "nvbufsurface.h"
+#include "nvbufsurftransform.h"
+#include "NvBufSurface.h"
 #include <vector>
 #include <iostream>
 #include <thread>

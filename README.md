@@ -13,8 +13,8 @@ apt install pkg-config libx264-dev libx265-dev g++ gcc git build-essential cmake
     cd build
     cmake ..
     make
-    sudo make install
-    sudo ldconfig
+    make install
+    ldconfig
 	
 **2.patch ffmpeg and build**
 
@@ -32,8 +32,9 @@ apt install pkg-config libx264-dev libx265-dev g++ gcc git build-essential cmake
     --extra-ldflags="-L/usr/local/cuda-12.2/lib64 -L/usr/local/lib -L/usr/lib/aarch64-linux-gnu" \
     --enable-libx264 \
     --enable-libx265 \
-    --prefix=/usr/local \
+    --prefix=/usr/local
     make -j 12
+    make install
 
 **3.using**
 
@@ -65,7 +66,7 @@ export OPENCV_BUILD_DIR=${OPENCV_DIR}/build
 mkdir -p ${OPENCV_DIR}
 cd ${OPENCV_DIR} && git clone --depth 1 --branch ${OPENCV_TAG} https://github.com/opencv/opencv.git
 mkdir -p ${OPENCV_BUILD_DIR}
-cd ${OPENCV_BUILD_DIR} && cmake ../opencv \
+cd ${OPENCV_BUILD_DIR} && cmake .. \
     -D BUILD_LIST=core,gapi,imgcodecs,imgproc,python3,videoio \
     -D BUILD_PERF_TESTS=OFF \
     -D BUILD_TESTS=OFF \
@@ -82,6 +83,5 @@ cd ${OPENCV_BUILD_DIR} && cmake ../opencv \
     -D WITH_TBB=OFF \
     -D WITH_VTK=OFF \
     -D WITH_WIN32UI=OFF
-
 cmake --build . -j 12
 make install

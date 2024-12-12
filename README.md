@@ -8,7 +8,7 @@ apt install pkg-config libx264-dev libx265-dev g++ gcc git build-essential cmake
 **1.build and install library**
 
     git clone https://github.com/Tantael/jetson-ffmpeg-fixed.git
-    cd jetson-ffmpeg
+    cd jetson-ffmpeg-fixed
     mkdir build
     cd build
     cmake ..
